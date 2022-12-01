@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const generate = require("./generateReadMe")
+const generateReadMe = require('./generateReadMe')
+const generateMarkdown = require('./utils/generateMarkdown')
 const fs = require('fs');
 
 // fs is a Node standard library package for reading and writing files
@@ -76,10 +77,10 @@ function init() {
         .then((answers) => {
             // Use user feedback for... whatever!!
             // writeToFile(fileName, data)
-            const html = generate(answers)
+            const html = generateReadMe(answers)
             console.log(html)
 
-            fs.writeFile('./readme2.md', html, error => {
+            fs.writeFile('./readme.md', html, error => {
                 if (error) throw error
                 console.log('ReadMe saved!')
             })
@@ -96,4 +97,3 @@ function init() {
 // Function call to initialize app
 init();
 
-// *** HOW DO I RUN THIS INTO AN MD DOCUMENT VS HTML??? UGH. 
