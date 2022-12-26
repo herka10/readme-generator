@@ -80,7 +80,7 @@ function init() {
             const html = generateReadMe(answers)
             console.log(html)
 
-            fs.writeFile('./readme.md', html, error => {
+            fs.writeFile('./sampleReadme.md', html, error => {
                 if (error) throw error
                 console.log('ReadMe saved!')
             })
